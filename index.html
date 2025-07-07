@@ -27,24 +27,62 @@
             color: #58a6ff;
             text-shadow: 0 0 10px #58a6ff;
         }
+
+        /* --- GALLERY GRID AND ITEM STYLES --- */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
+            /* Default to 1 column, sm: 2 columns, lg: 3 columns */
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 2rem; /* Spacious gap (32px) */
         }
+
+        /* Adjust columns for small screens and up */
+        @media (min-width: 640px) { /* sm */
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* Adjust columns for large screens and up */
+        @media (min-width: 1024px) { /* lg */
+            .gallery-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .gallery-item {
+            background-color: #1a1a1a; /* Dark background for the box */
+            border-radius: 1rem; /* More rounded corners */
+            padding: 1.5rem; /* Spacious inner padding */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.1); /* Stronger shadows */
+            transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+            border: 1px solid rgba(88, 166, 255, 0.1); /* Subtle border matching accent color */
+            display: flex; /* Flexbox for content alignment */
+            flex-direction: column; /* Stack content vertically */
+            align-items: center; /* Center items horizontally */
+            text-align: center; /* Center text */
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-0.5rem); /* Lift effect on hover */
+            box-shadow: 0 15px 25px rgba(0, 255, 255, 0.2), 0 6px 10px rgba(0, 255, 255, 0.1), 0 0 30px rgba(0, 255, 255, 0.3); /* Cyan glow shadow */
+        }
+
         .gallery-item img {
             width: 100%;
+            max-width: 120px; /* Constrain image size */
             height: auto;
             border-radius: 8px;
-            transition: transform 0.3s ease;
+            margin-bottom: 1rem; /* Space below image */
+            object-fit: contain; /* Ensure image fits without cropping */
+            padding: 0.5rem; /* Padding inside the image box */
+            background-color: rgba(255, 255, 255, 0.05); /* Slightly lighter background for the image itself */
+            border-radius: 0.5rem; /* Rounded corners for image container */
         }
-        .gallery-item img:hover {
-            transform: scale(1.05);
-        }
+        
         .caption {
-            margin-top: 8px;
+            margin-top: 0; /* Adjust caption margin as padding is on parent */
             font-size: 0.9rem;
-            text-align: center;
             color: #94a3b8;
         }
     </style>
@@ -92,7 +130,7 @@
             <div class="bg-gray-800 p-4 rounded">Metasploit</div>
             <div class="bg-gray-800 p-4 rounded">Nessus</div>
             <div class="bg-gray-800 p-4 rounded">Wireshark</div>
-            <div class="bg-gray-800 p-4 rounded">Splunk</div>
+            <div class="bg-800 p-4 rounded">Splunk</div>
             <div class="bg-gray-800 p-4 rounded">Linux</div>
             <div class="bg-gray-800 p-4 rounded">OWASP Top 10</div>
             <div class="bg-gray-800 p-4 rounded">VAPT</div>
@@ -248,7 +286,7 @@
     </footer>
 
     <script>
-        AOS.init(); // Only call AOS.init() once
+        AOS.init();
     </script>
 </body>
 </html>
