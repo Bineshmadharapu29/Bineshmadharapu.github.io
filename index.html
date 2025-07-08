@@ -2,21 +2,25 @@
 <html lang="en">
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <!-- AOS CSS (Animate On Scroll) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohd Abdul Jameel & Binesh Madharapu | Cybersecurity Portfolio</title>
+    <title>Binesh Madharapu | Cybersecurity Analyst</title>
     
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&family=Fira+Code&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            /* Cybersecurity Theme Colors (Prioritizing Mohd Abdul Jameel's more comprehensive theme) */
+            /* Cybersecurity Theme Colors */
             --bg-primary: #0a0a0a;
             --bg-secondary: #111111;
             --bg-tertiary: #1a1a1a;
@@ -34,7 +38,7 @@
             --gradient-secondary: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
         }
 
-        /* Combined base styles */
+        /* Base styles */
         * {
             margin: 0;
             padding: 0;
@@ -42,23 +46,16 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* Default to Inter, Fira Code for code blocks */
+            font-family: 'Inter', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        .code-font, body { /* Fira Code for Binesh Madharapu's site was applied to body, consolidating */
+        .code-font {
             font-family: 'JetBrains Mono', 'Fira Code', monospace;
         }
-
-        /* Binesh Madharapu's specific body styles, adapted */
-        body {
-            background-color: black; /* Reinforce black background */
-        }
-        .text-green-400 { color: #4ade80; } /* Tailwind green-400 */
-
 
         /* Scrollbar Styling */
         ::-webkit-scrollbar {
@@ -74,7 +71,7 @@
             border-radius: 4px;
         }
 
-        /* Loading Animation (from Mohd Abdul Jameel) */
+        /* Loading Animation */
         .loading {
             position: fixed;
             top: 0;
@@ -109,7 +106,7 @@
             pointer-events: none;
         }
 
-        /* Navigation (from Mohd Abdul Jameel, adapted for combined links) */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -139,6 +136,14 @@
             background-clip: text;
             color: transparent;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
         }
 
         .nav-links {
@@ -185,7 +190,7 @@
             cursor: pointer;
         }
 
-        /* Hero Section - Combined */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -219,7 +224,7 @@
             opacity: 0.6 !important;
         }
 
-        /* Profile Image Styles - Adapted for Binesh Madharapu's image in Mohd Abdul Jameel's container */
+        /* Profile Image Styles */
         .profile-image-container {
             display: flex;
             justify-content: center;
@@ -258,21 +263,6 @@
             }
             to {
                 box-shadow: 0 0 30px var(--glow-green), 0 0 40px var(--glow-cyan);
-            }
-        }
-
-        @keyframes pulseRing {
-            0% {
-                transform: scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: scale(1.1);
-                opacity: 0.1;
-            }
-            100% {
-                transform: scale(1.2);
-                opacity: 0;
             }
         }
 
@@ -351,22 +341,6 @@
             }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Sections */
         .section {
             padding: 6rem 0;
@@ -389,18 +363,6 @@
             background-clip: text;
             color: transparent;
         }
-        /* Binesh Madharapu's heading style, adapted for .heading class */
-        .heading {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px #22c55e, 0 0 10px #58a6ff; /* Combined glow effect */
-            text-align: center;
-            color: var(--text-primary); /* Ensure visible against background */
-            background: none; /* Override background clip for this specific heading style */
-            -webkit-background-clip: unset;
-            background-clip: unset;
-        }
-
 
         .section-subtitle {
             text-align: center;
@@ -417,7 +379,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
+            align-items: start; /* Align items to the start of their grid area */
         }
 
         .about-text {
@@ -478,53 +440,27 @@
             letter-spacing: 1px;
         }
 
-        /* Skills Grid */
+        /* Skills Grid (using block-box style for individual skills) */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
             margin-top: 2rem;
         }
-
-        .skill-category {
-            background: var(--bg-secondary);
-            padding: 2rem;
+        .block-box {
+            background-color: #1f2937;
+            padding: 16px;
             border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
+            transition: transform 0.3s ease;
+            text-align: center;
+            color: #94a3b8; /* Default text color for block-box content */
+            font-size: 0.9rem;
+            font-weight: 500;
         }
-
-        .skill-category:hover {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.1);
-        }
-
-        .skill-category h3 {
-            color: var(--accent-green);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            padding: 0.4rem 0;
-            color: var(--text-secondary);
-            position: relative;
-            padding-left: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .skill-list li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: var(--accent-cyan);
+        .block-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
         }
 
         /* Experience Section */
@@ -630,6 +566,12 @@
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
             position: relative;
+            min-height: 200px; /* Ensure cards have some height even if empty */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .project-card:hover {
@@ -641,6 +583,7 @@
         .project-header {
             padding: 2rem;
             background: var(--bg-tertiary);
+            width: 100%;
         }
 
         .project-title {
@@ -659,6 +602,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            justify-content: center;
         }
 
         .tech-tag {
@@ -674,6 +618,8 @@
             padding: 1.5rem 2rem;
             display: flex;
             gap: 1rem;
+            justify-content: center;
+            width: 100%;
         }
 
         .project-link {
@@ -691,69 +637,26 @@
         }
 
         /* Speaking Events Grid */
-        .speaking-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .speaking-item {
+        .speaking-images-row {
             display: flex;
-            gap: 1.5rem;
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            align-items: flex-start;
-        }
-
-        .speaking-item:hover {
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .speaking-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            color: var(--bg-primary);
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .speaking-images-row img {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .speaking-images-row img:hover {
+            transform: translateY(-5px) scale(1.02);
         }
 
-        .speaking-content {
-            flex: 1;
-        }
-
-        .speaking-title {
-            font-size: 1.2rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .speaking-meta {
-            color: var(--accent-blue);
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-            font-weight: 500;
-        }
-
-        .speaking-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        /* Speaking Stats */
         .speaking-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -784,167 +687,34 @@
         }
 
         /* Certifications Grid */
-        .certs-grid {
+        .certs-grid, .awards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
             margin-top: 3rem;
         }
-
-        .cert-card {
-            background: var(--bg-secondary);
-            padding: 2rem;
+        .gallery-item {
+            background-color: #1f2937;
+            padding: 16px;
             border-radius: 12px;
-            border: 1px solid var(--border-color);
-            text-align: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--text-primary);
-            display: block;
+            box-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
+            transition: transform 0.3s ease;
         }
-
-        .cert-card:hover {
-            border-color: var(--accent-green);
-            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.1);
-            transform: translateY(-5px);
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
         }
-
-        .cert-card img {
-            max-height: 80px;
-            margin-bottom: 1rem;
-            object-fit: contain;
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
         }
-
-        .cert-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--accent-green);
-            margin-bottom: 0.5rem;
-        }
-
-        .cert-issuer {
+        .caption {
+            margin-top: 8px;
             font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* Blogs Grid */
-        .blogs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .blog-card-new {
-            background: linear-gradient(145deg, var(--bg-secondary), var(--bg-tertiary));
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            min-height: 350px;
-        }
-
-        .blog-card-new:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.4);
-        }
-
-        .blog-icon {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .blog-content {
-            padding: 2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .blog-title-new {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-            line-height: 1.3;
-        }
-
-        .blog-excerpt-new {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .blog-link-new {
-            color: var(--accent-cyan);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            margin-top: auto;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .blog-link-new:hover {
-            color: var(--accent-green);
-        }
-
-        /* Awards and Achievements Grid */
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .achievement-card {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
             text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .achievement-card:hover {
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .achievement-card img {
-            max-height: 100px;
-            margin-bottom: 1rem;
-            object-fit: contain;
-            border-radius: 8px; /* For Binesh's images */
-        }
-
-        .achievement-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--accent-blue);
-            margin-bottom: 0.5rem;
-        }
-
-        .achievement-description {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            color: #94a3b8;
         }
 
         /* Contact Section */
@@ -980,7 +750,7 @@
         .contact-icon {
             width: 40px;
             height: 40px;
-            background: var(--accent-cyan);
+            background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1093,45 +863,6 @@
             font-size: 0.9rem;
         }
 
-        /* Binesh's Gallery Grid for Events, Certs, Awards */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
-        }
-        .gallery-item {
-            background-color: #1f2937;
-            padding: 16px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(88, 166, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .caption {
-            margin-top: 8px;
-            font-size: 0.9rem;
-            text-align: center;
-            color: #94a3b8;
-        }
-        .block-box { /* From Binesh's original styles */
-            background-color: #1f2937;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: transform 0.2s ease-in-out;
-            color: #94a3b8; /* Default text color for block-box content */
-        }
-        .block-box:hover {
-            transform: translateY(-4px);
-        }
-
         /* Responsive Design */
         @media (max-width: 1024px) {
             .nav-container {
@@ -1150,10 +881,7 @@
                 width: 180px;
                 height: 180px;
             }
-            .projects-grid, .skills-grid, .certs-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-            .blogs-grid {
+            .projects-grid, .skills-grid, .certs-grid, .awards-grid {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
             .about-grid, .contact-grid {
@@ -1209,8 +937,9 @@
             .experience-item::before {
                 left: -0.5rem;
             }
-            .speaking-grid, .projects-grid, .certs-grid, .blogs-grid, .achievements-grid, .gallery-grid {
-                grid-template-columns: 1fr;
+            .speaking-images-row img {
+                max-width: 250px;
+                height: 180px;
             }
             .speaking-stats {
                 grid-template-columns: 1fr;
@@ -1218,9 +947,6 @@
             }
             .block-box {
                 padding: 15px;
-            }
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
             .profile-image {
                 width: 150px;
@@ -1235,37 +961,6 @@
             }
             .stat-number {
                 font-size: 2rem;
-            }
-            .skill-category, .cert-card, .achievement-card {
-                padding: 1.5rem;
-            }
-            .experience-item {
-                padding: 1rem;
-            }
-            .experience-title {
-                font-size: 1.2rem;
-            }
-            .project-header {
-                padding: 1.5rem;
-            }
-            .project-links {
-                padding: 1rem 1.5rem;
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            .speaking-stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .blog-card-new {
-                min-height: 280px;
-            }
-            .blog-icon {
-                padding: 1.5rem;
-                font-size: 2.5rem;
-            }
-            .blog-content {
-                padding: 1rem;
             }
             .contact-info, .contact-form {
                 padding: 1.5rem;
@@ -1282,13 +977,19 @@
     </style>
 </head>
 <body>
+    <!-- Loading Animation -->
     <div class="loading" id="loadingScreen">
-        <div class="loading-text">Loading...</div>
+        <div class="loading-text">Loading Binesh's Portfolio...</div>
     </div>
 
+    <!-- Navigation Bar -->
     <nav class="nav">
         <div class="nav-container">
-            <a href="#" class="logo">Cyber Portfolio</a>
+            <a href="#home" class="logo">
+                <!-- Placeholder for your logo, replace with actual image if available -->
+                <img src="https://placehold.co/32x32/0a0a0a/00ffff?text=BM" alt="Binesh Madharapu Logo" />
+                <span>Binesh.sec</span>
+            </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1301,26 +1002,28 @@
                 <li><a href="#speaking" class="nav-link">Speaking & Events</a></li>
                 <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#awards" class="nav-link">Awards</a></li>
-                <li><a href="#blogs" class="nav-link">Blogs</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <canvas class="matrix-canvas" id="matrixCanvas"></canvas>
         <div class="hero-content">
             <div class="profile-image-container fade-in">
                 <div class="profile-image">
-                    <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Combined Profile" />
+                    <!-- Your profile image -->
+                    <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Binesh Madharapu Profile" />
                 </div>
             </div>
             <h1 class="hero-title">
-                <span class="type-text" data-text="Mohd Abdul Jameel & Binesh Madharapu"></span>
+                <span class="type-text" data-text="BINESH MADHARAPU"></span>
             </h1>
-            <p class="hero-subtitle">Cybersecurity Engineers | Ethical Hackers | Bug Bounty Hunters</p>
+            <p class="hero-subtitle">Cybersecurity Analyst</p>
             <p class="hero-description code-font">
-                A modern, interactive portfolio showcasing combined cybersecurity expertise with dynamic animations and a focus on securing the digital frontier.
+                Specialized in <span class="highlight">penetration testing</span>, vulnerability assessment, and ethical hacking. 
+                Passionate about identifying and mitigating security flaws to protect digital assets.
             </p>
             <div class="cta-buttons fade-in">
                 <a href="#contact" class="btn btn-primary">
@@ -1333,41 +1036,42 @@
         </div>
     </section>
 
+    <!-- About Me Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Us</h2>
+            <h2 class="section-title">About Me</h2>
             <p class="section-subtitle">
-                Dedicated cybersecurity professionals with hands-on experience in securing enterprise environments, penetration testing, and vulnerability assessment.
+                Dedicated cybersecurity professional with hands-on experience in securing enterprise environments
             </p>
             <div class="about-grid">
                 <div class="about-text fade-in">
                     <p>
-                        Mohd Abdul Jameel is a <span class="highlight">Security Engineer</span> with expertise in vulnerability assessments, network security, and enterprise security. He creates custom professional security assessment reports covering end-to-end project workflows, including threat modeling, SAST, SCA, DAST, and API security testing. In cloud security, he meticulously reviews all GCP services, identifying and addressing misconfigurations. He is passionate about <span class="highlight">API security</span> and <span class="highlight">cloud technologies</span>, leveraging tools like Sophos XDR and SonicWall.
+                        I'm Binesh Madharapu, a passionate cybersecurity enthusiast with a strong interest in <strong>penetration testing</strong> and vulnerability assessment. My journey in cybersecurity is driven by a commitment to understanding and combating digital threats. I have a solid foundation in various security domains, constantly seeking to expand my knowledge and practical skills.
                     </p>
                     <p>
-                        Binesh Madharapu is a passionate cybersecurity enthusiast with a strong interest in <span class="highlight">penetration testing</span> and vulnerability assessment. He has hands-on experience with tools like Burp Suite, Nmap, Metasploit, Nessus, and Splunk. He has conducted professional security assessments during his internship at the National Security Database, Noida. He enjoys participating in InfoSec events like Microsoft BlueHat, VulnCon, and BSides, and is committed to staying on the cutting edge of the cybersecurity landscape.
+                        During my internship at the National Security Database, Noida, I gained invaluable hands-on experience conducting professional security assessments. This involved working with industry-standard tools and methodologies to identify and report vulnerabilities, contributing to the overall security posture of various systems. I've also actively participated in numerous InfoSec events like Microsoft BlueHat, VulnCon, and BSides, which keeps me updated with the latest trends and challenges in the cybersecurity landscape.
                     </p>
                     <p>
-                        Both are passionate about giving back to the community, mentoring aspiring cybersecurity professionals, and actively engaging in cybersecurity events and knowledge-sharing initiatives.
+                        My expertise extends to working with tools such as Burp Suite, Nmap, Metasploit, Nessus, and Splunk, allowing me to perform comprehensive security analyses and develop effective countermeasures. I am dedicated to continuous learning and applying my skills to help secure digital environments and guide aspiring cybersecurity professionals.
                     </p>
                 </div>
                 <div class="about-stats fade-in">
                     <div class="stat-grid">
                         <div class="stat-item">
                             <span class="stat-number">10+</span>
-                            <span class="stat-label">Certifications (Binesh)</span>
+                            <span class="stat-label">Certifications</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">30+</span>
-                            <span class="stat-label">Students Guided (Binesh)</span>
+                            <span class="stat-label">Students Guided</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">10+</span>
-                            <span class="stat-label">Cyber Victims Helped (Binesh)</span>
+                            <span class="stat-label">Cyber Victims Helped</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">100k+</span>
-                            <span class="stat-label">Code Lines Secured (Jameel)</span>
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Experience</span>
                         </div>
                     </div>
                 </div>
@@ -1375,85 +1079,41 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title">Technical Arsenal</h2>
             <p class="section-subtitle">
-                Technical Arsenal: Comprehensive cybersecurity toolkit spanning multiple domains and technologies
+                Comprehensive cybersecurity toolkit spanning multiple domains and technologies
             </p>
             <div class="skills-grid">
-                <div class="skill-category fade-in">
-                    <h3><i class="fas fa-network-wired"></i> Network & Cloud Security</h3>
-                    <ul class="skill-list">
-                        <li>Firewall Management</li>
-                        <li>Intrusion Detection/Prevention</li>
-                        <li>Cloud Security (GCP, Azure)</li>
-                        <li>Network Segmentation</li>
-                        <li>VPN Management</li>
-                    </ul>
-                </div>
-                <div class="skill-category fade-in">
-                    <h3><i class="fas fa-bug"></i> VAPT & Testing</h3>
-                    <ul class="skill-list">
-                        <li>Burp Suite Professional</li>
-                        <li>Nessus & Greenbone OpenVAS</li>
-                        <li>NMAP & Metasploit</li>
-                        <li>OWASP ZAP</li>
-                        <li>Manual & Automated Testing</li>
-                    </ul>
-                </div>
-                <div class="skill-category fade-in">
-                    <h3><i class="fas fa-shield-alt"></i> App & API Security</h3>
-                    <ul class="skill-list">
-                        <li>SAST & DAST</li>
-                        <li>SCA & API Security Testing</li>
-                        <li>Container Security</li>
-                        <li>OWASP Top 10</li>
-                        <li>Threat Modeling</li>
-                    </ul>
-                </div>
-                <div class="skill-category fade-in">
-                    <h3><i class="fas fa-cogs"></i> DevOps & Automation</h3>
-                    <ul class="skill-list">
-                        <li>CI/CD Pipelines (Jenkins, Azure DevOps)</li>
-                        <li>GitHub Actions</li>
-                        <li>Docker & Kubernetes</li>
-                        <li>Terraform & Ansible</li>
-                        <li>Security Automation</li>
-                    </ul>
-                </div>
-                <div class="block-box text-center">Wireshark</div>
-                <div class="block-box text-center">Splunk</div>
-                <div class="block-box text-center">Linux</div>
-                <div class="block-box text-center">OSINT</div>
-                <div class="block-box text-center">XSS/SQLi/CSRF</div>
-                <div class="block-box text-center">HackerOne / Bug Bounty</div>
+                <div class="block-box fade-in">Burp Suite</div>
+                <div class="block-box fade-in">Nmap</div>
+                <div class="block-box fade-in">Metasploit</div>
+                <div class="block-box fade-in">Nessus</div>
+                <div class="block-box fade-in">Wireshark</div>
+                <div class="block-box fade-in">Splunk</div>
+                <div class="block-box fade-in">Linux</div>
+                <div class="block-box fade-in">OWASP Top 10</div>
+                <div class="block-box fade-in">VAPT</div>
+                <div class="block-box fade-in">OSINT</div>
+                <div class="block-box fade-in">XSS/SQLi/CSRF</div>
+                <div class="block-box fade-in">HackerOne / Bug Bounty</div>
+                <div class="block-box fade-in">Python Scripting</div>
+                <div class="block-box fade-in">Network Security</div>
+                <div class="block-box fade-in">Web Application Security</div>
             </div>
         </div>
     </section>
 
+    <!-- Experience Section -->
     <section id="experience" class="section">
         <div class="container">
             <h2 class="section-title">Professional Journey</h2>
-            <p class="section-subtitle"> Building secure digital infrastructures across diverse environments </p>
+            <p class="section-subtitle">
+                Building secure digital infrastructures through hands-on experience
+            </p>
             <div class="experience-timeline">
-                <div class="experience-item fade-in">
-                    <div class="experience-header">
-                        <h3 class="experience-title">Security Engineer Associate</h3>
-                        <h4 class="experience-company">Techolution</h4>
-                        <p class="experience-date">March 2024 - Present</p>
-                    </div>
-                    <div class="experience-description">
-                        <p>Leading comprehensive security operations and implementing advanced security measures across enterprise environments.</p>
-                        <ul>
-                            <li>Enhanced enterprise security by monitoring and analyzing threats using Sophos XDR, reducing incident resolution time by 30%</li>
-                            <li>Implemented SAST, SCA, DAST, and API Security testing, reducing critical vulnerabilities by 40% in pre-production</li>
-                            <li>Performed GCP security assessments, improving cloud security posture by 30% through hardening recommendations</li>
-                            <li>Secured organizational network by managing SonicWall firewalls and Aruba APs, reducing unauthorized access by 20%</li>
-                            <li>Assisted in achieving ISO 27001 certification through comprehensive security policy implementation</li>
-                        </ul>
-                    </div>
-                </div>
                 <div class="experience-item fade-in">
                     <div class="experience-header">
                         <h3 class="experience-title">Security Intern</h3>
@@ -1463,193 +1123,51 @@
                     <div class="experience-description">
                         <p>Contributed to national cybersecurity initiatives by conducting vulnerability assessments and developing security solutions.</p>
                         <ul>
-                            <li>Developed Python scripts for automated security tasks, improving efficiency by 25%</li>
-                            <li>Participated in red team exercises, identifying critical vulnerabilities in simulated environments</li>
-                            <li>Assisted in forensic analysis of security incidents, contributing to post-incident reports</li>
-                            <li>Researched emerging threats and presented findings to the security team</li>
+                            <li>Performed comprehensive vulnerability assessments on web applications and networks.</li>
+                            <li>Utilized tools like Burp Suite, Nmap, and Metasploit for penetration testing.</li>
+                            <li>Assisted in analyzing security incidents and generating detailed reports.</li>
+                            <li>Researched emerging threats and contributed to the development of security advisories.</li>
+                            <li>Collaborated with senior analysts on various cybersecurity projects.</li>
                         </ul>
                     </div>
                 </div>
+                <!-- Add more experience items as needed -->
             </div>
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section class="section" id="projects">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">Featured Projects</h2>
             <p class="section-subtitle">
-                Showcasing innovative cybersecurity tools, scripts, and research projects
+                This section will showcase cybersecurity tools, scripts, writeups, and research projects in the future.
             </p>
             <div class="projects-grid">
                 <div class="project-card fade-in">
                     <div class="project-header">
-                        <h3 class="project-title">DevSecOps Production Project</h3>
+                        <h3 class="project-title">Projects Coming Soon...</h3>
                         <p class="project-description">
-                            Engineered a robust DevSecOps pipeline for Kubernetes deployment using GitHub Actions, featuring automated security scanning with SonarQube, Trivy, and comprehensive monitoring with Prometheus/Grafana.
+                            Stay tuned for exciting projects in penetration testing, security automation, and more!
                         </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Kubernetes</span>
-                            <span class="tech-tag">GitHub Actions</span>
-                            <span class="tech-tag">SonarQube</span>
-                            <span class="tech-tag">Trivy</span>
-                            <span class="tech-tag">Prometheus</span>
-                        </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/majameel/DevSecOps-Production-Project.git" class="project-link">
-                            <i class="fab fa-github"></i> Github Repo
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3 class="project-title">Azure DevOps CI/CD Implementation</h3>
-                        <p class="project-description">
-                            Created comprehensive CI/CD pipelines for Python, .NET, and Java applications using Azure DevOps, with automated deployment to Azure Kubernetes Service and GitOps-based continuous monitoring.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Azure DevOps</span>
-                            <span class="tech-tag">AKS</span>
-                            <span class="tech-tag">GitOps</span>
-                            <span class="tech-tag">ArgoCD</span>
-                            <span class="tech-tag">Multi-language</span>
-                        </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/majameel/END-to-END-CI-CD-pipeline-Implementation-Using-Azure-Devops.git" class="project-link">
-                            <i class="fab fa-github"></i> Github Repo
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card fade-in">
-                    <div class="project-header">
-                        <h3 class="project-title">Web Application Penetration Testing Framework</h3>
-                        <p class="project-description">
-                            Developed a structured framework for comprehensive web application penetration testing, covering reconnaissance, vulnerability scanning, exploitation, and reporting, adhering to industry best practices.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Penetration Testing</span>
-                            <span class="tech-tag">OWASP Methodologies</span>
-                            <span class="tech-tag">Burp Suite</span>
-                            <span class="tech-tag">Metasploit</span>
-                            <span class="tech-tag">Reporting</span>
-                        </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/majameel/Web-Application-Penetration-Testing-Framework.git" class="project-link">
-                            <i class="fab fa-github"></i> Github Repo
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="speaking">
+    <!-- Speaking & Events Section -->
+    <section id="speaking" class="section">
         <div class="container">
             <h2 class="section-title">Speaking & Events</h2>
-            <p class="section-subtitle">Sharing knowledge and inspiring the next generation of cybersecurity professionals</p>
+            <p class="section-subtitle">
+                Sharing knowledge and inspiring the next generation of cybersecurity professionals
+            </p>
             
-            <div class="swiper speakingSwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" data-aos="fade-up">
-                        <div class="bg-[var(--bg-secondary)] rounded-2xl shadow-xl p-4 transition-transform hover:scale-105 h-[650px] flex flex-col justify-between">
-                            <img src="assets/speaking/nullhyd.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <img src="assets/speaking/nullhyd-2.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <h3 class="text-lg font-semibold text-[var(--accent-green)]">Null Hyderabad</h3>
-                            <p class="text-sm text-[var(--text-secondary)] mt-2">Active community contributor in Null Hyderabad, sharing expertise on various cybersecurity topics.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-aos="fade-up">
-                        <div class="bg-[var(--bg-secondary)] rounded-2xl shadow-xl p-4 transition-transform hover:scale-105 h-[650px] flex flex-col justify-between">
-                            <img src="assets/speaking/null-amazon.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <img src="assets/speaking/null-amazon-2.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <h3 class="text-lg font-semibold text-[var(--accent-green)]">Null Hyderabad at Amazon</h3>
-                            <p class="text-sm text-[var(--text-secondary)] mt-2">Presented comprehensive insights on API Security at Null Hyderabad's event hosted by Amazon.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-aos="fade-up">
-                        <div class="bg-[var(--bg-secondary)] rounded-2xl shadow-xl p-4 transition-transform hover:scale-105 h-[650px] flex flex-col justify-between">
-                            <img src="assets/speaking/null-salesforce.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <img src="assets/speaking/null-salesforce-2.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <h3 class="text-lg font-semibold text-[var(--accent-green)]">Null Hyderabad at Salesforce</h3>
-                            <p class="text-sm text-[var(--text-secondary)] mt-2">Presented latest newsbytes, CVEs & tools at Nullhyd hosted by Salesforce.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-aos="fade-up">
-                        <div class="bg-[var(--bg-secondary)] rounded-2xl shadow-xl p-4 transition-transform hover:scale-105 h-[650px] flex flex-col justify-between">
-                            <img src="assets/speaking/gdsc.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <img src="assets/speaking/gdsc-2.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <h3 class="text-lg font-semibold text-[var(--accent-green)]">GDSC - Cybersecurity Lead</h3>
-                            <p class="text-sm text-[var(--text-secondary)] mt-2">Led a team, presented roadmaps, and mentored students into cybersecurity.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-aos="fade-up">
-                        <div class="bg-[var(--bg-secondary)] rounded-2xl shadow-xl p-4 transition-transform hover:scale-105 h-[650px] flex flex-col justify-between">
-                            <img src="assets/speaking/bluehat.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <img src="assets/speaking/bluehat-2.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <h3 class="text-lg font-semibold text-[var(--accent-green)]">Microsoft BlueHat Conference</h3>
-                            <p class="text-sm text-[var(--text-secondary)] mt-2">Participated in and contributed to discussions at the prestigious Microsoft BlueHat conference.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide" data-aos="fade-up">
-                        <div class="bg-[var(--bg-secondary)] rounded-2xl shadow-xl p-4 transition-transform hover:scale-105 h-[650px] flex flex-col justify-between">
-                            <img src="assets/speaking/vulncon.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <img src="assets/speaking/vulncon-2.jpeg" class="rounded-xl mb-4 object-cover h-60 w-full" />
-                            <h3 class="text-lg font-semibold text-[var(--accent-green)]">VulnCon - Key Contributor</h3>
-                            <p class="text-sm text-[var(--text-secondary)] mt-2">Shared insights on emerging vulnerabilities and participated in live demos at VulnCon.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-            
-            <h3 class="heading mt-8">Additional Event Highlights (Binesh Madharapu)</h3>
-            <div class="gallery-grid mt-4">
-                <div class="gallery-item">
-                    <img src="assets/events/blue1.jpeg" alt="Microsoft BlueHat Event">
-                    <p class="caption">Microsoft BlueHat Event</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/events/blue2.jpeg" alt="CTF Winner">
-                    <p class="caption">CTF Winner</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/events/B-Sides.jpeg" alt="B-Sides Bangalore">
-                    <p class="caption">B-Sides Bangalore Event</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/events/photo1-null.jpeg" alt="Null Workshop">
-                    <p class="caption">Null Hyderabad - Hands-on Workshop</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/events/photo2.jpeg" alt="Null Amazon">
-                    <p class="caption">Null Hyderabad in Amazon</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/events/photo3.jpeg" alt="Null Epam">
-                    <p class="caption">Null Hyderabad in EPAM</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/events/photo4.jpeg" alt="Null Qualcomm">
-                    <p class="caption">Null Hyderabad in Qualcomm</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/events/vuln2.jpeg" alt="VulnCon">
-                    <p class="caption">VulnCon Conference</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/events/Vuln3.jpeg" alt="VulnCon">
-                    <p class="caption">VulnCon Conference</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/events/vulncon.jpeg" alt="VulnCon">
-                    <p class="caption">VulnCon Conference</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/events/Seasides.jpeg" alt="Seasides">
-                    <p class="caption">Seasides Conference</p>
-                </div>
+            <div class="speaking-images-row">
+                <img src="assets/events/blue1.jpeg" alt="Microsoft BlueHat Event" data-aos="fade-up" />
+                <img src="assets/events/photo3.jpeg" alt="Null Hyderabad EPAM" data-aos="fade-up" data-aos-delay="100" />
+                <img src="assets/events/Seasides.jpeg" alt="Seasides Conference" data-aos="fade-up" data-aos-delay="200" />
             </div>
 
             <div class="speaking-stats">
@@ -1673,52 +1191,33 @@
         </div>
     </section>
 
+    <!-- Certifications Section -->
     <section class="section" id="certifications">
         <div class="container">
             <h2 class="section-title">Certifications</h2>
-            <p class="section-subtitle">Validating expertise with industry-recognized credentials</p>
+            <p class="section-subtitle">Industry-recognized credentials validating expertise across cybersecurity domains</p>
             <div class="certs-grid">
-                <a href="https://www.credly.com/badges/892a0e44-d84d-45f8-b32c-74a9b69b0d36" target="_blank" class="cert-card fade-in">
-                    <img src="assets/logos/ccna.png" alt="Cisco Logo" class="mx-auto mb-4 w-20 h-20 object-contain" />
-                    <h3 class="cert-name">Cisco Certified Network Associate</h3>
-                    <p class="cert-issuer">Cisco Systems</p>
-                </a>
-                <a href="https://www.credly.com/badges/6b603657-043f-48d8-b69b-b9f2de383162" target="_blank" class="cert-card fade-in">
-                    <img src="assets/logos/rhcsa.png" alt="Red Hat Logo" class="mx-auto mb-4 w-20 h-20 object-contain" />
-                    <h3 class="cert-name">Red Hat Certified System Administrator</h3>
-                    <p class="cert-issuer">Red Hat</p>
-                </a>
-                <a href="https://www.credly.com/badges/6d0e2f82-1084-49c4-8978-91c2a3026924" target="_blank" class="cert-card fade-in">
-                    <img src="assets/logos/apisec.png" alt="APIsec Logo" class="mx-auto mb-4 w-20 h-20 object-contain" />
-                    <h3 class="cert-name">Certified API Security Analyst</h3>
-                    <p class="cert-issuer">APIsec University</p>
-                </a>
-                <a href="https://drive.google.com/file/d/1C99_Mp19e5cqEAu5sCmp1zWkUq_Vw48u/view?usp=sharing" target="_blank" class="cert-card fade-in">
-                    <img src="assets/logos/icsi.png" alt="ICSI Logo" class="mx-auto mb-4 w-20 h-20 object-contain" />
-                    <h3 class="cert-name">Certified Network Security Specialist</h3>
-                    <p class="cert-issuer">ICSI (International CyberSecurity Institute)</p>
-                </a>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/logos/eccouncil.png" alt="CEH">
                     <p class="caption">Certified Ethical Hacker – EC-Council</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/logos/ejpt.png" alt="eJPT">
                     <p class="caption">eJPT – INE Security</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/logos/google.png" alt="Google IT">
                     <p class="caption">IT Fundamentals – Google</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/logos/isac.png" alt="ISAC">
                     <p class="caption">Cyber Crime Officer – ISAC</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/logos/tcm.png" alt="TCM">
                     <p class="caption">Mobile Pentesting – TCM Security</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/logos/tryhackme.png" alt="TryHackMe">
                     <p class="caption">Certified SOC Analyst – TryHackMe</p>
                 </div>
@@ -1726,125 +1225,49 @@
         </div>
     </section>
 
-    <section class="section" id="blogs">
-        <div class="container">
-            <h2 class="section-title">Blogs & Insights</h2>
-            <p class="section-subtitle">Sharing technical insights and contributing to the cybersecurity community</p>
-            <div class="blogs-grid">
-                <div class="blog-card-new fade-in">
-                    <div class="blog-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="blog-content">
-                        <h3 class="blog-title-new">Zero-Day Vulnerability Exploitation</h3>
-                        <p class="blog-excerpt-new">
-                            An in-depth analysis of recent zero-day exploits, their impact, and strategies for proactive defense in enterprise environments.
-                        </p>
-                        <a href="https://medium.com/@majameeljameey" target="_blank" class="blog-link-new">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="blog-card-new fade-in">
-                    <div class="blog-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <div class="blog-content">
-                        <h3 class="blog-title-new">Securing Multi-Cloud Deployments</h3>
-                        <p class="blog-excerpt-new">
-                            Best practices and common pitfalls in securing applications and data across various cloud platforms (AWS, Azure, GCP).
-                        </p>
-                        <a href="https://medium.com/@majameeljameey" target="_blank" class="blog-link-new">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="blog-card-new fade-in">
-                    <div class="blog-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <div class="blog-content">
-                        <h3 class="blog-title-new">Automating Security in CI/CD</h3>
-                        <p class="blog-excerpt-new">
-                            How to integrate automated security testing tools into your CI/CD pipelines to catch vulnerabilities early.
-                        </p>
-                        <a href="https://medium.com/@majameeljameey" target="_blank" class="blog-link-new">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Awards & Recognition Section -->
     <section class="section" id="awards">
         <div class="container">
-            <h2 class="section-title">Awards & Achievements</h2>
-            <p class="section-subtitle">Recognitions and milestones in the cybersecurity journey</p>
-            <div class="achievements-grid">
-                <div class="achievement-card fade-in">
-                    <img src="assets/awards/award-bug-bounty.png" alt="Bug Bounty" />
-                    <h3 class="achievement-title">Top Bug Bounty Hunter</h3>
-                    <p class="achievement-description">Recognized for discovering and reporting critical vulnerabilities in various platforms.</p>
-                </div>
-                <a href="https://drive.google.com/file/d/1Xl04f6o1k453w3K472oF0z0g0d0d0d0d/view?usp=sharing" target="_blank" class="achievement-card fade-in">
-                    <img src="assets/awards/award-best-speaker.png" alt="Best Speaker" />
-                    <h3 class="achievement-title">Best Speaker Award - Null Hyderabad</h3>
-                    <p class="achievement-description">Awarded for outstanding presentations and engaging sessions at community events.</p>
-                </a>
-                <a href="https://drive.google.com/file/d/1s2k2o3l2k2o3l2k2o3l2k2o3l2k2o3l/view?usp=sharing" target="_blank" class="achievement-card fade-in">
-                    <img src="assets/awards/award-community.png" alt="Community Contributor" />
-                    <h3 class="achievement-title">Community Contributor Award - Medium</h3>
-                    <p class="achievement-description">Recognized for active contribution in educating and inspiring professionals online.</p>
-                </a>
-                <a href="https://drive.google.com/file/d/1t3m3n4o3p4q4r5s/view?usp=sharing" target="_blank" class="achievement-card fade-in">
-                    <img src="assets/awards/award-ieee.png" alt="IEEE" />
-                    <h3 class="achievement-title">Secretary - IEEE Computer Society</h3>
-                    <p class="achievement-description">Organized and led tech-driven cybersecurity initiatives with IEEE.</p>
-                </a>
-                <a href="https://drive.google.com/file/d/1u4v4w5x4y5z6a7b/view?usp=sharing" target="_blank" class="achievement-card fade-in">
-                    <img src="assets/awards/award-aicte.png" alt="AICTE" />
-                    <h3 class="achievement-title">Presented Cybersecurity Roadmap - AICTE</h3>
-                    <p class="achievement-description">Guidance on career paths for aspiring cybersecurity students across institutions.</p>
-                </a>
-
-                <div class="gallery-item">
+            <h2 class="section-title">Awards & Recognition</h2>
+            <p class="section-subtitle">Awards and recognitions for contributions to the cybersecurity community</p>
+            <div class="awards-grid">
+                <div class="gallery-item fade-in">
                     <img src="assets/awards-achievements/CCIO CERTIFICATION.JPG" alt="CCIO">
                     <p class="caption">Cyber Crime Intervention Officer – ISAC</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/awards-achievements/bluehat1.jpeg" alt="BlueHat">
                     <p class="caption">Microsoft BlueHat CTF Winner</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/awards-achievements/bluehat2.jpeg" alt="BlueHat">
                     <p class="caption">CTF Winner</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/awards-achievements/bluehat3.jpeg" alt="BlueHat">
                     <p class="caption">Microsoft Event Winner</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/awards-achievements/bluehat4.jpeg" alt="BlueHat">
                     <p class="caption">BlueHat CTF Winner</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/awards-achievements/bluehat5.jpeg" alt="VulnCon">
                     <p class="caption">VulnCon Winning Moment</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/awards-achievements/card.jpeg" alt="COPConnect">
                     <p class="caption">Cybercrime First Responder – COPCONNECT</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/awards-achievements/dsci.jpeg" alt="DSCI">
                     <p class="caption">Telangana Govt CTF – DSCI</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/awards-achievements/blue1.jpeg" alt="BlueHat">
                     <p class="caption">Microsoft BlueHat Event</p>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item fade-in">
                     <img src="assets/awards-achievements/blue2.jpeg" alt="BlueHat">
                     <p class="caption">Microsoft CTF Winner</p>
                 </div>
@@ -1852,6 +1275,7 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section class="section" id="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
@@ -1864,22 +1288,15 @@
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-details">
-                            <h4>Email (Mohd Abdul Jameel)</h4>
-                            <p><a href="mailto:jameelofficial305@gmail.com">jameelofficial305@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-details">
-                            <h4>Email (Binesh Madharapu)</h4>
+                            <h4>Email</h4>
                             <p><a href="mailto:crypt0vaultsx@gmail.com">crypt0vaultsx@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                         <div class="contact-details">
-                            <h4>Phone (Binesh Madharapu)</h4>
-                            <p>+91 7093711156</p>
+                            <h4>Phone</h4>
+                            <p>+91 9542176917</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1892,48 +1309,13 @@
                     <div class="contact-item">
                         <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
                         <div class="contact-details">
-                            <h4>LinkedIn (Mohd Abdul Jameel)</h4>
-                            <p><a href="https://www.linkedin.com/in/mohd-abduljameel-305ax25" target="_blank">Connect with me</a></p>
-                        </div>
-                    </div>
-                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-                        <div class="contact-details">
-                            <h4>LinkedIn (Binesh Madharapu)</h4>
+                            <h4>LinkedIn</h4>
                             <p><a href="https://linkedin.com/in/bineshmadharapu" target="_blank">Connect with me</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fab fa-github"></i></div>
-                        <div class="contact-details">
-                            <h4>GitHub (Mohd Abdul Jameel)</h4>
-                            <p><a href="https://github.com/majameel" target="_blank">Visit my GitHub</a></p>
-                        </div>
-                    </div>
-                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fab fa-medium"></i></div>
-                        <div class="contact-details">
-                            <h4>Medium (Mohd Abdul Jameel)</h4>
-                            <p><a href="https://medium.com/@majameeljameey" target="_blank">Read my Blogs</a></p>
-                        </div>
-                    </div>
-                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fab fa-medium"></i></div>
-                        <div class="contact-details">
-                            <h4>Medium (Binesh Madharapu)</h4>
-                            <p><a href="https://medium.com/@bineshmadharapu" target="_blank">Read my Blogs</a></p>
-                        </div>
-                    </div>
-                     <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-external-link-alt"></i></div>
-                        <div class="contact-details">
-                            <h4>TryHackMe (Binesh Madharapu)</h4>
-                            <p><a href="https://tryhackme.com/p/bineshmadharapu" target="_blank">TryHackMe Profile</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form fade-in">
-                    <h3>Send Us a Message</h3>
+                    <h3>Send Message</h3>
                     <form action="https://formspree.io/f/xzzggkln" method="POST" class="space-y-4">
                         <div>
                             <label for="name" class="block text-sm font-medium text-[var(--text-secondary)]">Full Name</label>
@@ -1954,17 +1336,33 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p class="footer-text">
-                &copy; 2025 Mohd Abdul Jameel & Binesh Madharapu. Securing the digital frontier.
-            </p>
-            <div class="mt-4 text-center text-sm text-gray-500">
-                [ SECURITY_STATUS: ACTIVE ] [ THREAT_LEVEL: MINIMAL ] [ SYSTEM_INTEGRITY: OPTIMAL ]
+            <div class="social-links">
+                <a href="https://linkedin.com/in/bineshmadharapu" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/your-github-profile" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://medium.com/@bineshmadharapu" class="social-link" target="_blank">
+                    <i class="fab fa-medium"></i>
+                </a>
+                <a href="mailto:crypt0vaultsx@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
+            <p class="footer-text">
+                &copy; 2025 Binesh Madharapu. Securing the digital frontier, one vulnerability at a time.
+            </p>
+            <p class="footer-text code-font" style="margin-top: 1rem; font-size: 0.8rem;">
+                [ SECURITY_STATUS: ACTIVE ] [ THREAT_LEVEL: MINIMAL ] [ SYSTEM_INTEGRITY: OPTIMAL ]
+            </p>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
@@ -1972,23 +1370,7 @@
         // AOS Initialization
         AOS.init({ once: true, duration: 700 });
 
-        // Swiper Initialization
-        const swiper = new Swiper(".speakingSwiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            breakpoints: {
-                640: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
-            },
-        });
-
-        // Mobile Menu Toggle (from Mohd Abdul Jameel)
+        // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
         mobileMenuBtn.addEventListener('click', () => {
@@ -2003,7 +1385,7 @@
             }
         });
 
-        // Smooth Scrolling for Nav Links (from Mohd Abdul Jameel)
+        // Smooth Scrolling for Nav Links
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -2027,7 +1409,7 @@
             });
         });
 
-        // Active Section Highlighting on Scroll (from Mohd Abdul Jameel)
+        // Active Section Highlighting on Scroll
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
@@ -2048,7 +1430,7 @@
             });
         });
 
-        // Typewriter Effect (from Mohd Abdul Jameel)
+        // Typewriter Effect
         document.addEventListener('DOMContentLoaded', () => {
             const typeTextElements = document.querySelectorAll('.type-text');
             typeTextElements.forEach((el, index) => {
@@ -2072,7 +1454,7 @@
             });
         });
 
-        // Particle Animation (Mohd Abdul Jameel's)
+        // Particle Animation
         const createParticle = () => {
             const hero = document.querySelector('.hero');
             if (!hero) return;
@@ -2112,9 +1494,6 @@
                 iterations: Infinity,
                 easing: 'ease-in-out'
             });
-
-            // Cleanup (optional, if particles are not looping indefinitely)
-            // setTimeout(() => particle.remove(), (duration + delay) * 1000);
         };
 
         const animateParticles = () => {
@@ -2123,7 +1502,7 @@
             }
         };
 
-        // Matrix Rain Effect (Mohd Abdul Jameel's)
+        // Matrix Rain Effect
         let matrixCanvas, matrixCtx;
         const matrix = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん0123456789!@#$%^&*";
         const matrixArray = matrix.split("");
@@ -2200,31 +1579,13 @@
             window.addEventListener('resize', createMatrixRain);
         });
 
-        // Test function (from Mohd Abdul Jameel's original script for testing)
-        function testEffects() {
-            console.log('Running testEffects...');
-            
-            // Test particle
-            createParticle();
-            console.log('Test particle created');
-            
-            // Test matrix
-            const hero = document.querySelector('.hero');
-            console.log('Hero element found:', hero ? 'YES' : 'NO');
-            
-            if (hero) {
-                const existingCanvas = hero.querySelector('.matrix-canvas');
-                console.log('Existing canvas:', existingCanvas ? 'YES' : 'NO');
-                
-                if (!existingCanvas) {
-                    createMatrixRain();
-                    console.log('Test matrix rain created');
-                }
-            }
-        }
-        
-        // Run test after everything loads (optional, for debugging)
-        // setTimeout(testEffects, 5000);
+        // Resume Download Link (Placeholder)
+        document.getElementById('downloadResume').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Replace with your actual resume download link or a placeholder
+            alert('Resume download functionality coming soon!'); 
+            // window.open('your-resume-link.pdf', '_blank');
+        });
     </script>
 </body>
 </html>
