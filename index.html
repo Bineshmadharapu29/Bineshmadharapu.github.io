@@ -1469,8 +1469,8 @@
         <div class="nav-container">
             <a href="#home" class="logo">
                 <!-- Placeholder for your logo, replace with actual image if available -->
-                <img src="https://placehold.co/32x32/0a0a0a/00ffff?text=BM" alt="Binesh Madharapu Logo" />
-                <span>Binesh.sec</span>
+                <img src="https://placehold.co/32x32/0a0a0a/00ffff?text=B" alt="Binesh Madharapu Logo" />
+                <span>Binesh</span>
             </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -1500,7 +1500,7 @@
                 </div>
             </div>
             <h1 class="hero-title">
-                <span class="type-text" data-text="BINESH MADHARAPU"></span>
+                <span class="type-text" data-text="BINESH MADHARAPU">BINESH MADHARAPU</span>
             </h1>
             <p class="hero-subtitle">Cybersecurity Analyst</p>
             <p class="hero-description code-font">
@@ -2344,6 +2344,27 @@
 
         AOS.init({ once: true, duration: 700 });
     </script>
+<!-- Before </body> -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const el = document.querySelector(".type-text");
+    const text = el.dataset.text;
+    let i = 0;
+    el.textContent = "";
+
+    function type() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 120);
+      }
+    }
+
+    if (el && text) {
+      type();
+    }
+  });
+</script>
 
 </body>
 </html>
