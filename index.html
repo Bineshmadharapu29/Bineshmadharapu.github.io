@@ -1461,7 +1461,7 @@
 <body>
     <!-- Loading Animation -->
     <div class="loading" id="loadingScreen">
-        <div class="loading-text">Incomming information alret...</div>
+        <div class="loading-text">Incomming information alert...</div>
     </div>
 
     <!-- Navigation Bar -->
@@ -1571,7 +1571,7 @@
                     <ul class="skill-list">
                         <li>Reconnaissance </li>
                         <li>Scanning & Enumeration</li>
-                        <li></li>Vulnerability Assessment (CVEs, scanners)</li>
+                        <li>Vulnerability Assessment (CVEs, scanners)</li>
                         <li>Exploitation & Post Exploitation </li>
                         <li>Wireless Attacks & Web App Hacking </li>
                     </ul>
@@ -1716,6 +1716,8 @@
                             <h3 class="text-lg font-semibold text-[var(--accent-green)]">Vulncon</h3>
                         </div>
                     </div>
+                    </div> <!-- Closing swiper-wrapper -->
+
                     <!-- Pagination -->
                 <div class="swiper-pagination mt-6"></div>
             </div>
@@ -1782,15 +1784,17 @@
                     <p class="cert-issuer">TCM Secutity</p>
                 </a>
                 <!-- ISAC -->
-                    <img src="assets/logos/isac.png" alt="ISAC" class="mx-auto mb-4 w-20 h-20 object-contain" />
-                     <h3 class="cert-name">certified Cybercrime intervention officer</h3>
-                    <p class="cert-issuer">ISAC</p>
-                </a>
+<a href="#" class="cert-card fade-in hover:shadow-xl transition-transform transform hover:-translate-y-1">
+    <img src="assets/logos/isac.png" alt="ISAC" class="mx-auto mb-4 w-20 h-20 object-contain" />
+    <h3 class="cert-name">Certified Cybercrime Intervention Officer</h3>
+    <p class="cert-issuer">ISAC</p>
+</a>
                 <!-- CPENT -->
-                    <img src="assets/logos/CPENT_8890F2209CCC.png" alt="Ec-council" class="mx-auto mb-4 w-20 h-20 object-contain" />
-                     <h3 class="cert-name">certified Penetration Tester</h3>
-                    <p class="cert-issuer">EC-Council</p>
-                </a>
+<a href="#" class="cert-card fade-in hover:shadow-xl transition-transform transform hover:-translate-y-1">
+    <img src="assets/logos/CPENT_8890F2209CCC.png" alt="CPENT" class="mx-auto mb-4 w-20 h-20 object-contain" />
+    <h3 class="cert-name">Certified Penetration Tester</h3>
+    <p class="cert-issuer">EC-Council</p>
+</a>
             </div>
         </div>
     </section>
@@ -1967,7 +1971,7 @@
         // FIXED Loading Screen - Uses DOMContentLoaded instead of window.load
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
-                document.getElementById('loading').classList.add('hidden');
+               document.getElementById('loadingScreen').classList.add('hidden');
             }, 1500);
         });
 
