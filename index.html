@@ -1935,7 +1935,8 @@
                             <label for="message" class="block text-sm font-medium text-[var(--text-secondary)]">Your Message</label>
                             <textarea id="message" name="message" rows="5" required class="mt-1 w-full p-2 rounded-lg bg-[var(--bg-secondary)] border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent-green)]"></textarea>
                         </div>
-                        <button type="submit">Send Message</button>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+
                     </form>
                 </div>
             </div>
@@ -1977,7 +1978,8 @@
 
         // Emergency fallback - Force hide loading screen after 3 seconds
         setTimeout(() => {
-            const loading = document.getElementById('loading');
+            const loading = document.getElementById('loadingScreen');
+
             if (loading && !loading.classList.contains('hidden')) {
                 loading.classList.add('hidden');
                 console.log('Emergency fallback: Loading screen hidden');
